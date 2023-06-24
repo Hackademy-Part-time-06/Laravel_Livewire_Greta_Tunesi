@@ -34,6 +34,7 @@ class TaskCreateForm extends Component
 
         session()->flash('tasks', 'Task successfully updated.');
         $this->reset(['title', 'description']); //elimina i campi dopo averli caricati per ripartire da zero
+        return redirect()->route('tasks.index')->with('success', 'Task aggiunta con successo!');
     }
 
         //real time validation

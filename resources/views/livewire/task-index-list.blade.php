@@ -15,9 +15,8 @@
                 <td>{{$task->title}}</td>
                 <td>{{$task->description}}</td>
                 <td>
-                    <a href="" class="btn btn-primary">Visualizza</a>
                     <a href="{{Route('tasks.edit', $task)}}" class="btn btn-warning">Modifica</a>
-                    <a href="" class="btn btn-danger">Elimina</a>
+                    <a wire:click="destroy({{$task}})" class="btn btn-danger">Elimina</a>
                </td>
 
             </tr>

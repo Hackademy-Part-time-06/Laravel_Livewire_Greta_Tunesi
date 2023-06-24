@@ -1,5 +1,5 @@
 <div>
-    <form class="container" wire:submit.prevent="store">
+    <form class="container" wire:submit.prevent="update">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
@@ -12,6 +12,7 @@
             @error('description') <span class="error text-danger">{{ $message }}</span> @enderror
         </div>
         <button type="submit" class="btn btn-primary">Salva</button>
+        <button wire:click="destroy({{$task}})" class="btn btn-danger">Elimina</button>
     </form>
 </div>
 

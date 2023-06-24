@@ -16,6 +16,14 @@ class TaskEditForm extends Component
         'description' => 'required',
     ];
     
+    public function destroy(Task $task)
+    {
+        $task->delete(); 
+        session()->flash('tasks', 'Task successfully deleted.');
+        return redirect()->route('tasks.index')->with('success', 'Task eliminata con successo!');
+
+    }
+
     public function mount() //è tipo costruttore
     {
         $this->title = $this->task->title;
@@ -36,12 +44,16 @@ class TaskEditForm extends Component
         ]);
 
         session()->flash('tasks', 'Task successfully updated.');
+        return redirect()->route('tasks.index')->with('success', 'Task aggiunta con successo!');
     }
+
+
 
     public function render()
     {
         return view('livewire.task-edit-form');
     }
+   
 
 
   
